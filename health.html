@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Health & FitHomey — safe, non-medical lifestyle guidance, a junk-food recovery assistant and a daily habit tracker. Bilingual (English & हिन्दी).">
+  <title data-i18n="health.title">Health &amp; FitHomey — AgriHealthAI</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body data-page="health">
+  <div id="site-nav"></div>
+
+  <main id="main">
+    <section class="section section--tight" style="padding-top:38px">
+      <div class="container">
+        <span class="eyebrow" data-i18n="nav.health"></span>
+        <h1 data-i18n="health.title"></h1>
+        <p class="lead" style="max-width:780px" data-i18n="health.subtitle"></p>
+        <div class="notice notice--danger" style="margin-top:18px;max-width:900px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>
+          <span><strong data-i18n="health.disclaimerTitle"></strong> <span data-i18n="health.disclaimerText"></span></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--white" style="padding-top:0">
+      <div class="container">
+        <div class="tabs" role="tablist">
+          <button class="tab" role="tab" aria-selected="true" data-tab="lifestyle" id="tab-lifestyle" aria-controls="panel-lifestyle" data-i18n="health.tabs.lifestyle"></button>
+          <button class="tab" role="tab" aria-selected="false" data-tab="recovery" id="tab-recovery" aria-controls="panel-recovery" data-i18n="health.tabs.recovery"></button>
+          <button class="tab" role="tab" aria-selected="false" data-tab="tracker" id="tab-tracker" aria-controls="panel-tracker" data-i18n="health.tabs.tracker"></button>
+        </div>
+
+        <!-- LIFESTYLE -->
+        <div role="tabpanel" id="panel-lifestyle" aria-labelledby="tab-lifestyle">
+          <h2 data-i18n="health.lifestyleTitle"></h2>
+          <p class="lead" data-i18n="health.lifestyleSub"></p>
+
+          <h3 style="margin-top:22px" data-i18n="health.chooseGoal"></h3>
+          <div class="radio-cards" id="goal-cards" style="max-width:620px"></div>
+
+          <div id="goal-guidance" style="margin-top:24px"></div>
+
+          <h3 style="margin-top:34px" data-i18n="health.coreHabits"></h3>
+          <div class="grid grid--3">
+            <div class="card"><div class="card__body"><h3 data-i18n="health.core1Title"></h3><p class="muted" data-i18n="health.core1Text"></p></div></div>
+            <div class="card"><div class="card__body"><h3 data-i18n="health.core2Title"></h3><p class="muted" data-i18n="health.core2Text"></p></div></div>
+            <div class="card"><div class="card__body"><h3 data-i18n="health.core3Title"></h3><p class="muted" data-i18n="health.core3Text"></p></div></div>
+            <div class="card"><div class="card__body"><h3 data-i18n="health.core4Title"></h3><p class="muted" data-i18n="health.core4Text"></p></div></div>
+            <div class="card"><div class="card__body"><h3 data-i18n="health.core5Title"></h3><p class="muted" data-i18n="health.core5Text"></p></div></div>
+            <div class="card"><div class="card__body"><h3 data-i18n="health.core6Title"></h3><p class="muted" data-i18n="health.core6Text"></p></div></div>
+          </div>
+        </div>
+
+        <!-- RECOVERY -->
+        <div role="tabpanel" id="panel-recovery" class="hidden" aria-labelledby="tab-recovery">
+          <h2 data-i18n="health.recoveryTitle"></h2>
+          <p class="lead" data-i18n="health.recoverySub"></p>
+
+          <div class="form-grid" style="max-width:640px;align-items:end">
+            <div class="field">
+              <label for="junk-search" data-i18n="health.enterFood"></label>
+              <input class="input" id="junk-search" type="search" autocomplete="off" data-i18n-attr="placeholder:health.enterFoodPlaceholder">
+            </div>
+            <div class="field">
+              <button class="btn btn--primary" type="button" id="junk-find" data-i18n="health.findFood"></button>
+            </div>
+          </div>
+          <p class="hint" data-i18n="health.suggestionsTitle" style="margin-top:14px"></p>
+          <div class="chip-row" id="junk-suggestions"></div>
+
+          <div id="junk-result" style="margin-top:22px"></div>
+
+          <div class="notice notice--info" style="margin-top:24px;max-width:900px">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+            <span><strong data-i18n="health.recoveryTitle"></strong> <span data-i18n="health.recoveryNote"></span></span>
+          </div>
+          <div class="notice" style="margin-top:12px;max-width:900px">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4Z"/></svg>
+            <span data-i18n="health.safeNote"></span>
+          </div>
+        </div>
+
+        <!-- TRACKER -->
+        <div role="tabpanel" id="panel-tracker" class="hidden" aria-labelledby="tab-tracker">
+          <h2 data-i18n="health.trackerTitle"></h2>
+          <p class="lead" data-i18n="health.trackerSub"></p>
+          <div class="notice" style="margin-bottom:20px;max-width:900px">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4Z"/></svg>
+            <span data-i18n="health.trackerPrivacy"></span>
+          </div>
+
+          <div class="grid" style="grid-template-columns:1.1fr .9fr;gap:26px;align-items:start">
+            <div>
+              <div class="card"><div class="card__body">
+                <h3 data-i18n="health.todayProgress"></h3>
+                <div style="display:flex;align-items:center;gap:16px;margin-bottom:14px">
+                  <div class="stat" style="flex:none;min-width:120px"><span class="stat__label" data-i18n="health.todayProgress"></span><span class="stat__value" id="today-count">0/0</span></div>
+                  <div style="flex:1">
+                    <div class="progress-track"><span id="today-bar" style="width:0%"></span></div>
+                    <p class="small muted" id="today-msg" style="margin:8px 0 0"></p>
+                  </div>
+                </div>
+                <div id="habit-list"></div>
+              </div></div>
+            </div>
+
+            <div class="stack">
+              <div class="card"><div class="card__body">
+                <h3 data-i18n="health.weeklyProgress"></h3>
+                <div id="weekly-chart" style="display:flex;gap:8px;align-items:flex-end;height:130px;margin-top:8px"></div>
+                <p class="small muted" id="streak-text" style="margin-top:12px"></p>
+              </div></div>
+
+              <div class="card"><div class="card__body">
+                <h3 data-i18n="health.mealsReminders"></h3>
+                <ul class="small muted" style="margin:0">
+                  <li data-i18n="health.reminderBreakfast"></li>
+                  <li data-i18n="health.reminderWater"></li>
+                  <li data-i18n="health.reminderMeals"></li>
+                </ul>
+              </div></div>
+
+              <div class="card"><div class="card__body">
+                <h3 data-i18n="health.sleepRoutine"></h3>
+                <div class="field" style="margin-bottom:10px">
+                  <label for="sleep-bedtime" data-i18n="health.sleepBedtime"></label>
+                  <input class="input" id="sleep-bedtime" type="time">
+                </div>
+                <div class="field">
+                  <label for="sleep-hours" data-i18n="health.sleepHours"></label>
+                  <input class="input" id="sleep-hours" type="number" min="0" max="24" step="0.5">
+                </div>
+                <p class="small muted" style="margin-top:10px" data-i18n="health.savedLocal"></p>
+              </div></div>
+
+              <div style="display:flex;gap:10px;flex-wrap:wrap">
+                <button class="btn btn--secondary btn--sm" type="button" id="reset-day" data-i18n="health.resetDay"></button>
+                <button class="btn btn--danger btn--sm" type="button" id="clear-tracker" data-i18n="health.clearTracker"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <div id="toast-root"></div>
+
+  <script defer src="js/core/config.js"></script>
+  <script defer src="js/shared/referenceData.js"></script>
+  <script defer src="js/i18n/translations.js"></script>
+  <script defer src="js/i18n/index.js"></script>
+  <script defer src="js/core/ui.js"></script>
+  <script defer src="js/services/storageService.js"></script>
+  <script defer src="js/services/apiClient.js"></script>
+  <script defer src="js/services/translationService.js"></script>
+  <script defer src="js/services/nutritionService.js"></script>
+  <script defer src="js/services/healthGuidanceService.js"></script>
+  <script defer src="js/components/layout.js"></script>
+  <script defer src="js/pages/health.js"></script>
+</body>
+</html>

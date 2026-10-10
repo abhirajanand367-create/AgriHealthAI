@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AI crop planning assistant for Indian farmers — guided crop recommendations with honest cost and profit estimates, plus a full cultivation plan. Bilingual.">
+  <title data-i18n="agri.title">AI Crop Planning Assistant — AgriHealthAI</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body data-page="agriculture">
+  <div id="site-nav"></div>
+
+  <main id="main">
+    <!-- header -->
+    <section class="section section--tight" style="padding-top:38px">
+      <div class="container">
+        <span class="eyebrow" data-i18n="nav.agriculture"></span>
+        <h1 data-i18n="agri.title"></h1>
+        <p class="lead" style="max-width:760px" data-i18n="agri.subtitle"></p>
+        <div class="notice notice--warn no-print" style="margin-top:18px;max-width:900px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>
+          <span data-i18n="agri.demoNotice"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORM -->
+    <section class="section section--white" id="form-section">
+      <div class="container">
+        <div class="section-head left">
+          <h2 data-i18n="agri.formTitle"></h2>
+          <p class="lead" data-i18n="agri.formSub"></p>
+        </div>
+
+        <form id="agri-form" novalidate>
+          <div class="form-grid">
+            <div class="field" data-field="state">
+              <label for="f-state" data-i18n="agri.state"></label>
+              <span class="hint" data-i18n="agri.stateHint"></span>
+              <select class="select" id="f-state" name="state" required></select>
+              <span class="field__err" data-i18n="agri.validation.state"></span>
+            </div>
+            <div class="field">
+              <label for="f-district" data-i18n="agri.district"></label>
+              <input class="input" id="f-district" name="district" type="text" autocomplete="address-level2" data-i18n-attr="placeholder:agri.districtPlaceholder">
+            </div>
+
+            <div class="field" data-field="landArea">
+              <label for="f-land" data-i18n="agri.landArea"></label>
+              <span class="hint" data-i18n="agri.landAreaHint"></span>
+              <input class="input" id="f-land" name="landArea" type="number" min="0.1" step="0.1" inputmode="decimal" placeholder="1" required>
+              <span class="field__err" data-i18n="agri.validation.land"></span>
+            </div>
+            <div class="field" data-field="unit">
+              <label for="f-unit" data-i18n="agri.unit"></label>
+              <select class="select" id="f-unit" name="unit" required></select>
+              <span class="field__err" data-i18n="agri.validation.unit"></span>
+            </div>
+
+            <div class="field" data-field="season">
+              <label for="f-season" data-i18n="agri.season"></label>
+              <span class="hint" data-i18n="agri.seasonHint"></span>
+              <select class="select" id="f-season" name="season" required></select>
+              <span class="field__err" data-i18n="agri.validation.season"></span>
+            </div>
+            <div class="field">
+              <label for="f-soil" data-i18n="agri.soil"></label>
+              <span class="hint" data-i18n="agri.soilHint"></span>
+              <select class="select" id="f-soil" name="soil"></select>
+            </div>
+
+            <div class="field" data-field="water">
+              <label for="f-water" data-i18n="agri.water"></label>
+              <span class="hint" data-i18n="agri.waterHint"></span>
+              <select class="select" id="f-water" name="water" required></select>
+              <span class="field__err" data-i18n="agri.validation.water"></span>
+            </div>
+            <div class="field" data-field="budget">
+              <label for="f-budget" data-i18n="agri.budget"></label>
+              <span class="hint" data-i18n="agri.budgetHint"></span>
+              <input class="input" id="f-budget" name="budget" type="number" min="0" step="100" inputmode="decimal" data-i18n-attr="placeholder:agri.budgetPlaceholder">
+              <span class="field__err" data-i18n="agri.validation.budget"></span>
+            </div>
+
+            <div class="field field--full" data-field="preferences">
+              <label data-i18n="agri.preference"></label>
+              <span class="hint" data-i18n="agri.preferenceHint"></span>
+              <div class="radio-cards" id="f-prefs"></div>
+              <span class="field__err" data-i18n="agri.validation.pref"></span>
+            </div>
+          </div>
+
+          <div class="flex-actions" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px">
+            <button class="btn btn--primary btn--lg" type="submit" id="agri-submit">
+              <span data-i18n="agri.submit"></span>
+            </button>
+            <button class="btn btn--secondary btn--lg" type="button" id="agri-reset" data-i18n="agri.resetForm"></button>
+          </div>
+          <p class="small muted" style="margin-top:10px" data-i18n="agri.submitHint"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section class="section hidden" id="results-section">
+      <div class="container">
+        <div class="section-head left">
+          <div class="badge-row"><span class="badge badge--warn" data-i18n="common.demoBadge"></span></div>
+          <h2 style="margin-top:12px" data-i18n="agri.resultsTitle"></h2>
+          <p class="lead" data-i18n="agri.resultsSub"></p>
+          <p class="small muted" id="results-count"></p>
+        </div>
+        <div class="notice notice--info" style="margin-bottom:24px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+          <span><strong data-i18n="agri.assumptionsTitle"></strong> <span data-i18n="agri.assumptionsText"></span></span>
+        </div>
+        <div class="grid grid--3" id="crops-grid"></div>
+
+        <div class="section-head left" style="margin-top:44px" id="plan-anchor"></div>
+      </div>
+    </section>
+
+    <!-- PLAN -->
+    <section class="section section--white hidden" id="plan-section">
+      <div class="container">
+        <div class="no-print" style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px">
+          <button class="btn btn--secondary" type="button" id="plan-back">&larr; <span data-i18n="common.back"></span></button>
+          <span class="badge badge--warn" style="align-self:center" data-i18n="common.demoBadge"></span>
+        </div>
+        <div id="plan-content"></div>
+      </div>
+    </section>
+
+    <!-- COMPARE BAR -->
+    <div class="compare-bar" id="compare-bar">
+      <div class="container" style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:space-between">
+        <span class="small"><strong id="compare-count"></strong></span>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn btn--secondary btn--sm" type="button" id="compare-clear" data-i18n="agri.removeAllCompare"></button>
+          <button class="btn btn--primary btn--sm" type="button" id="compare-open" data-i18n="common.compareSelected"></button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <div id="toast-root"></div>
+
+  <script defer src="js/core/config.js"></script>
+  <script defer src="js/shared/referenceData.js"></script>
+  <script defer src="js/i18n/translations.js"></script>
+  <script defer src="js/i18n/index.js"></script>
+  <script defer src="js/core/ui.js"></script>
+  <script defer src="js/services/storageService.js"></script>
+  <script defer src="js/services/apiClient.js"></script>
+  <script defer src="js/services/translationService.js"></script>
+  <script defer src="js/services/cropService.js"></script>
+  <script defer src="js/components/layout.js"></script>
+  <script defer src="js/pages/agriculture.js"></script>
+</body>
+</html>

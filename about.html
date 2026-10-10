@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="About AgriHealthAI — a bilingual, transparent platform connecting agriculture, food awareness and everyday health.">
+  <title data-i18n="about.title">About — AgriHealthAI</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body data-page="about">
+  <div id="site-nav"></div>
+
+  <main id="main">
+    <section class="section section--tight" style="padding-top:38px">
+      <div class="container">
+        <span class="eyebrow" data-i18n="nav.about"></span>
+        <h1 data-i18n="about.title"></h1>
+        <p class="lead" style="max-width:780px" data-i18n="about.subtitle"></p>
+      </div>
+    </section>
+
+    <section class="section section--white" style="padding-top:0">
+      <div class="container">
+        <div class="grid" style="grid-template-columns:1.1fr .9fr;gap:32px;align-items:center">
+          <div>
+            <h2 data-i18n="about.missionTitle"></h2>
+            <p class="lead" data-i18n="about.missionText"></p>
+          </div>
+          <img class="card__media" style="border-radius:var(--radius-lg);border:1px solid var(--border)"
+               src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&w=1000&q=70"
+               data-i18n-attr="alt:img.aboutMission" alt="" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head center reveal">
+          <h2 data-i18n="about.visionTitle"></h2>
+        </div>
+        <div class="grid grid--2">
+          <div class="card reveal"><div class="card__body"><h3 data-i18n="about.v1Title"></h3><p class="muted" data-i18n="about.v1Text"></p></div></div>
+          <div class="card reveal"><div class="card__body"><h3 data-i18n="about.v2Title"></h3><p class="muted" data-i18n="about.v2Text"></p></div></div>
+          <div class="card reveal"><div class="card__body"><h3 data-i18n="about.v3Title"></h3><p class="muted" data-i18n="about.v3Text"></p></div></div>
+          <div class="card reveal"><div class="card__body"><h3 data-i18n="about.v4Title"></h3><p class="muted" data-i18n="about.v4Text"></p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--mint">
+      <div class="container">
+        <div class="grid" style="grid-template-columns:1fr 1fr;gap:32px;align-items:start">
+          <div>
+            <h2 data-i18n="about.techTitle"></h2>
+            <p class="lead" data-i18n="about.techText"></p>
+            <h3 style="margin-top:20px" data-i18n="about.statusTitle"></h3>
+            <div class="notice notice--warn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg><span data-i18n="about.statusDemo"></span></div>
+            <div class="notice notice--info" style="margin-top:10px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4Z"/></svg><span data-i18n="about.statusReal"></span></div>
+          </div>
+          <div>
+            <h2 data-i18n="about.modulesTitle"></h2>
+            <p class="muted" data-i18n="about.modulesText"></p>
+            <div class="table-wrap">
+              <table>
+                <tbody>
+                  <tr><td><code>cropRecommendationService</code></td><td class="small muted">/api/crops/recommend</td></tr>
+                  <tr><td><code>cropPlanningService</code></td><td class="small muted">/api/crops/plan</td></tr>
+                  <tr><td><code>foodVisionService</code></td><td class="small muted">/api/food/analyze</td></tr>
+                  <tr><td><code>nutritionService</code></td><td class="small muted">/api/nutrition/:id</td></tr>
+                  <tr><td><code>healthGuidanceService</code></td><td class="small muted">educational content</td></tr>
+                  <tr><td><code>translationService</code></td><td class="small muted">i18n engine</td></tr>
+                  <tr><td><code>storageService</code></td><td class="small muted">localStorage (this browser)</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="disclaimers">
+      <div class="container">
+        <div class="section-head left">
+          <h2 data-i18n="about.disclaimerTitle"></h2>
+          <p class="lead" data-i18n="about.disclaimerText"></p>
+        </div>
+        <div class="grid grid--3">
+          <div class="card"><div class="card__body"><span class="badge badge--warn">AGRICULTURE</span><p class="muted" style="margin-top:12px" data-i18n="disclaimers.agri"></p></div></div>
+          <div class="card"><div class="card__body"><span class="badge badge--warn">FOOD</span><p class="muted" style="margin-top:12px" data-i18n="disclaimers.food"></p></div></div>
+          <div class="card"><div class="card__body"><span class="badge badge--warn">HEALTH</span><p class="muted" style="margin-top:12px" data-i18n="disclaimers.health"></p></div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <div id="toast-root"></div>
+
+  <script defer src="js/core/config.js"></script>
+  <script defer src="js/shared/referenceData.js"></script>
+  <script defer src="js/i18n/translations.js"></script>
+  <script defer src="js/i18n/index.js"></script>
+  <script defer src="js/core/ui.js"></script>
+  <script defer src="js/services/storageService.js"></script>
+  <script defer src="js/services/apiClient.js"></script>
+  <script defer src="js/services/translationService.js"></script>
+  <script defer src="js/components/layout.js"></script>
+  <script defer src="js/pages/about.js"></script>
+</body>
+</html>

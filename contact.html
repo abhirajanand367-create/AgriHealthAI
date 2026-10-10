@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Contact AgriHealthAI — send feedback, report a problem or ask a question.">
+  <title data-i18n="contact.title">Contact — AgriHealthAI</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body data-page="contact">
+  <div id="site-nav"></div>
+
+  <main id="main">
+    <section class="section section--tight" style="padding-top:38px">
+      <div class="container">
+        <span class="eyebrow" data-i18n="nav.contact"></span>
+        <h1 data-i18n="contact.title"></h1>
+        <p class="lead" style="max-width:780px" data-i18n="contact.subtitle"></p>
+      </div>
+    </section>
+
+    <section class="section section--white" style="padding-top:0">
+      <div class="container">
+        <div class="grid" style="grid-template-columns:1.1fr .9fr;gap:32px;align-items:start">
+          <div>
+            <h2 data-i18n="contact.formTitle"></h2>
+            <form id="contact-form" novalidate>
+              <div class="form-grid">
+                <div class="field" data-field="name">
+                  <label for="c-name" data-i18n="contact.name"></label>
+                  <input class="input" id="c-name" name="name" type="text" autocomplete="name" data-i18n-attr="placeholder:contact.namePlaceholder" required>
+                  <span class="field__err" data-i18n="contact.validation.name"></span>
+                </div>
+                <div class="field" data-field="email">
+                  <label for="c-email" data-i18n="contact.email"></label>
+                  <input class="input" id="c-email" name="email" type="email" autocomplete="email" data-i18n-attr="placeholder:contact.emailPlaceholder" required>
+                  <span class="field__err" data-i18n="contact.validation.email"></span>
+                </div>
+                <div class="field field--full" data-field="topic">
+                  <label for="c-topic" data-i18n="contact.topic"></label>
+                  <select class="select" id="c-topic" name="topic" required></select>
+                  <span class="field__err" data-i18n="contact.validation.topic"></span>
+                </div>
+                <div class="field field--full" data-field="message">
+                  <label for="c-message" data-i18n="contact.message"></label>
+                  <textarea class="textarea" id="c-message" name="message" data-i18n-attr="placeholder:contact.messagePlaceholder" required></textarea>
+                  <span class="field__err" data-i18n="contact.validation.message"></span>
+                </div>
+              </div>
+              <button class="btn btn--primary btn--lg" type="submit" id="contact-send" style="margin-top:22px">
+                <span data-i18n="contact.send"></span>
+              </button>
+              <p class="small muted" style="margin-top:10px" data-i18n="contact.privacyNote"></p>
+            </form>
+          </div>
+          <div class="stack">
+            <div class="card"><div class="card__body">
+              <h3 data-i18n="contact.infoTitle"></h3>
+              <p class="muted" data-i18n="contact.infoText"></p>
+              <div class="notice"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span data-i18n="contact.infoPlaceholder"></span></div>
+            </div></div>
+            <div class="card"><div class="card__body">
+              <h3 data-i18n="contact.faqTitle"></h3>
+              <details class="acc"><summary class="acc__head"><span data-i18n="contact.faq1Q"></span><svg class="chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary><div class="acc__body"><p data-i18n="contact.faq1A"></p></div></details>
+              <details class="acc"><summary class="acc__head"><span data-i18n="contact.faq2Q"></span><svg class="chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary><div class="acc__body"><p data-i18n="contact.faq2A"></p></div></details>
+              <details class="acc"><summary class="acc__head"><span data-i18n="contact.faq3Q"></span><svg class="chev" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary><div class="acc__body"><p data-i18n="contact.faq3A"></p></div></details>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <div id="toast-root"></div>
+
+  <script defer src="js/core/config.js"></script>
+  <script defer src="js/shared/referenceData.js"></script>
+  <script defer src="js/i18n/translations.js"></script>
+  <script defer src="js/i18n/index.js"></script>
+  <script defer src="js/core/ui.js"></script>
+  <script defer src="js/services/storageService.js"></script>
+  <script defer src="js/services/apiClient.js"></script>
+  <script defer src="js/services/translationService.js"></script>
+  <script defer src="js/components/layout.js"></script>
+  <script defer src="js/pages/contact.js"></script>
+</body>
+</html>

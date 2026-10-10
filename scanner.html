@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AI Food Scanner — upload a food photo for a visible-freshness check, then view approximate nutrition facts from reference data. Bilingual.">
+  <title data-i18n="scanner.title">AI Food Scanner &amp; Nutrition Analyser — AgriHealthAI</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body data-page="scanner">
+  <div id="site-nav"></div>
+
+  <main id="main">
+    <section class="section section--tight" style="padding-top:38px">
+      <div class="container">
+        <span class="eyebrow" data-i18n="nav.scanner"></span>
+        <h1 data-i18n="scanner.title"></h1>
+        <p class="lead" style="max-width:760px" data-i18n="scanner.subtitle"></p>
+
+        <div class="notice notice--danger" style="margin-top:18px;max-width:900px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>
+          <span><strong data-i18n="scanner.safetyTitle"></strong> <span data-i18n="scanner.safetyText"></span></span>
+        </div>
+        <div class="notice notice--warn" style="margin-top:12px;max-width:900px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+          <span data-i18n="scanner.demoNotice"></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--white">
+      <div class="container">
+        <div class="grid" style="grid-template-columns:1fr 1fr;gap:30px;align-items:start">
+          <!-- LEFT: upload -->
+          <div>
+            <h2 data-i18n="scanner.uploadTitle"></h2>
+            <p class="hint" data-i18n="scanner.uploadHint"></p>
+
+            <div id="upload-area">
+              <div class="dropzone" id="dropzone" tabindex="0" role="button" data-i18n-attr="aria-label:scanner.chooseFile">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 16V4M7 9l5-5 5 5M5 20h14"/></svg>
+                <p style="margin:0 0 6px;font-weight:600" data-i18n="scanner.dropHere"></p>
+                <p class="small muted" style="margin:0 0 14px" data-i18n="scanner.uploadHint"></p>
+                <span class="btn btn--secondary btn--sm" data-i18n="scanner.chooseFile"></span>
+              </div>
+              <input type="file" id="file-input" accept="image/jpeg,image/png,image/webp" class="hidden">
+            </div>
+
+            <div id="preview-area" class="hidden">
+              <div class="preview-wrap">
+                <img id="preview-img" src="" alt="">
+              </div>
+              <div class="preview-actions">
+                <button class="btn btn--primary" type="button" id="analyse-btn" data-i18n="scanner.analyse"></button>
+                <button class="btn btn--secondary" type="button" id="replace-btn" data-i18n="scanner.replace"></button>
+                <button class="btn btn--danger" type="button" id="remove-btn" data-i18n="scanner.remove"></button>
+              </div>
+            </div>
+
+            <div id="analyse-loading" class="loading-block hidden">
+              <div class="spinner"></div>
+              <p data-i18n="scanner.analysing"></p>
+              <p class="small" data-i18n="scanner.analysingHint"></p>
+            </div>
+
+            <hr class="hr">
+            <h3 data-i18n="scanner.pickFoodPrompt"></h3>
+            <p class="hint" data-i18n="scanner.pickFoodHint"></p>
+            <div class="field">
+              <label for="food-search" data-i18n="scanner.confirmSelect"></label>
+              <input class="input" id="food-search" type="search" autocomplete="off" data-i18n-attr="placeholder:scanner.confirmPlaceholder">
+            </div>
+            <div id="food-suggestions" class="chip-row" style="margin-top:12px"></div>
+          </div>
+
+          <!-- RIGHT: results -->
+          <div id="result-column">
+            <div class="empty-state" id="result-empty" style="background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius-lg)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 3v18M3 12h4a4 4 0 0 0 4-4V3M7 12V3M17 21V3c-3 1-5 4-5 8 0 2 1 3 2 3h3Z"/></svg>
+              <p data-i18n="scanner.resultTitle"></p>
+            </div>
+
+            <div id="analysis-result" class="hidden"></div>
+            <div id="nutrition-panel" class="hidden" style="margin-top:22px"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <div id="toast-root"></div>
+
+  <script defer src="js/core/config.js"></script>
+  <script defer src="js/shared/referenceData.js"></script>
+  <script defer src="js/i18n/translations.js"></script>
+  <script defer src="js/i18n/index.js"></script>
+  <script defer src="js/core/ui.js"></script>
+  <script defer src="js/services/storageService.js"></script>
+  <script defer src="js/services/apiClient.js"></script>
+  <script defer src="js/services/translationService.js"></script>
+  <script defer src="js/services/nutritionService.js"></script>
+  <script defer src="js/services/foodVisionService.js"></script>
+  <script defer src="js/components/layout.js"></script>
+  <script defer src="js/pages/scanner.js"></script>
+</body>
+</html>
