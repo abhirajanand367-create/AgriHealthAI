@@ -1,0 +1,22 @@
+{
+  "name": "agrihealthai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AgriHealthAI — bilingual agriculture, food and health platform. Static front end + optional AI backend.",
+  "main": "server/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node server/index.js",
+    "serve:static": "node server/static-server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "multer": "^1.4.5-lts.1"
+  }
+}
